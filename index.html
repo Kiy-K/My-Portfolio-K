@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>My portfolio</title>
+    <link rel="icon" type="image/webp" href="/images/favicon.webp">
+</head> 
+<body>
+<style>
+  body {
+    font-family: 'Helvetica', sans-serif;
+    background-color: #000;
+    padding: 30px;
+    color: #fff;
+  }
+
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1a1a1a;
+  }
+
+  li {
+    float: left;
+  }
+
+  nav li a {
+    display: flex;
+    gap: 20px;
+    color: whitesmoke;
+    padding: 16px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  nav li a:hover {
+    background-color: #404040;
+  }
+
+  a:link, a:visited {
+    color: gray;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #f7f7f7;
+    transform: scale(1.05);
+  }
+
+  a:active {
+    color: #ddd;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  table, td, th {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #fff;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: grey;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 20px;
+    transition: all 0.2s;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 2);
+  }
+
+  .fade-in {
+    animation: fadeIn 2.5s ease-in-out;
+    font-style: italic;
+    color: #ff4444;
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes slideUp {
+    from { transform: translateY(100px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .slide-up {
+    animation: slideUp 2s ease-out;
+  }
+
+  .list {
+    padding: 8px 16px;
+    text-align: left;
+  }
+  img:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease-in-out;
+  }
+  .container {
+    display: flex;
+    align-items: flex-start;
+  }
+  @media (max-width:600px) {
+    .container {
+      flex-direction: column;
+    }
+  ul.container {
+    justify-content: center;
+    align-items: center;
+  }
+  li {
+    float: none;
+    margin: 5px 0;
+  }
+  }
+  ul.container + hr {
+    margin-top: 10px;
+  }
+  li {
+    margin: 0 10px;
+  }
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  h1 {
+    animation: slideDown 1s ease-out;
+  }
+</style>
+<header>
+<h1 style="text-align: center;">Navigation Bars</h1>
+<nav>
+<ul class="container">
+  <li><a href="https://kiy-k.github.io/My-Portfolio-K/">Home</a></li>
+  <li><a href="#1">About me</a></li>
+  <li><a href="#2">My friends' list</a></li>
+</ul>
+</nav>
+</header>
+<hr>
+<section>
+<h1 style="text-decoration: solid;text-align: center;"><strong>My Personal Information</strong></h1>
+<h1 id="1">About me:</h1>
+<p style="font-size: 20px;">My name is Kiy. This line looks enthusiastic but I'm not.</p> 
+<pre style="font-size: 20px; font-family: Arial;text-align: left;">
+    I love playing video games
+    Partcularly strategic games!
+    Two of them are Hoi4,Rimworld
+</pre>
+<button type="button"
+onclick="document.getElementById('demo').innerHTML = Date()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+<h2>This is a table about my current skill:</h2>
+<table>
+  <tr>
+    <th>My skill</th>
+    <th>Level</th>
+    <th>What I can do</th>
+  </tr>
+  <tr>
+    <td rowspan="2">Playing games</td>
+    <td>Immediate</td>
+    <td>Playing Stellaris</td>
+  </tr>
+  <tr>
+    <td>Adavanced</td>
+    <td>Playing Hoi4</td>
+  </tr>
+  <tr>
+    <td>Coding</td>
+    <td>Basic</td>
+    <td>HTML,CSS,Javascript in basic</td>
+  </tr>
+  <caption>The information was last updated in 8/4/2025</caption>
+</table>
+<a href="https://sandboxels.r74n.com/" target="_blank"><button style="padding: 10px 20px;font-size: 20px;transition:all 0.2s;border-radius: 12px;cursor: pointer;box-shadow: 0 4px 6px rgba(0, 0, 0, 2)">Click here to play Sandboxels!</button></a>
+<h2 style="font-size: 28px;"> This is my current avatar:</h2>
+<img src="https://i.imgflip.com/2/8fomfq.jpg">
+<p style="font-family: monospace;font-size: medium;color: grey black;"><sup>Freedom is Slavery.<br>but I like this photo more.</sup></p>
+<h2>This is where you can learn to code, I tried and succeeded</h2>
+<p><a href="https://www.w3schools.com/" target="_blank"><i>HTML Tutorial</i></a></p>
+<style>
+.fade-in {
+  animation: fadeIn 2.5s ease-in-out;
+  font-style: italic;
+  color: #ff4444;
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+<p class="fade-in" style="font-family: Helvetica;text-decoration: underline;font-size: 24px;text-align: center"><b>Control is an illusion. In <del>our hand</del> Party's hand <del> until now</del> forever...</b></p>
+<p style="text-align: center;font-size: large;"><em>The Party or <abbr title="English Socialism">INGSOC</abbr>,is the ruler of Oceania with their figurehead is Big Brother</em></p>
+<style>
+@keyframes slideUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.slide-up {
+  animation: slideUp 2s ease-out;
+}
+</style>
+<p style="font-size: 40px;text-align: center;" class="slide-up">More information about 1984:</p>
+<p style="text-align: center;"><a href="https://en.wikipedia.org/wiki/Nineteen_Eighty-Four" target="_blank" title="Go to Wikipedia for more information"><img src="https://res.cloudinary.com/hzpwrwfdi/image/upload/w_110/media/covers/nineteen-eighty-four-1984-george_h2udyj" onclick="alert('BIG BROTHER IS WATCHING YOU')";cursor:pointer alt="Nineteen_Eighty-Four"></a></p>
+<button style="font-size: 20px;transition:0.2s all;padding: 12px 24px ;color: #000;border-radius: 12px;cursor: pointer;box-shadow: 0 4px 6px rgba(0, 0, 0, 2);" onclick="increaseCount();">Click me for some reward!</button>
+<script>
+  let count = 0;
+  const countText = document.createElement('p');
+  countText.style.fontSize = '24px';
+  document.body.insertBefore(countText, document.querySelector('hr'));
+
+  function increaseCount() {
+    count++;
+    countText.textContent = "You've clicked: " + count + " time(s)";
+    
+    if (count === 50) {
+      alert("You're really persistent... Big Brother noticed you.");
+    }
+  }
+</script>
+<hr>
+<style>
+.list {
+padding: 8px 16px ;
+text-align: left;
+}
+</style>
+<h1 id="2"><strong>My friends' list</strong></h1>
+<h2>Use this for convenience:</h2>
+<iframe src="https://tse1.mm.bing.net/th/id/OIF.hQWX2mYx4egtaR5FUicyew?rs=1&pid=ImgDetMain&o=7&rm=3&adlt=strict" name="iframe_friend" height="340px" width="100%" frameborder="0" style="border: none;"></iframe>
+<p class="list"><a href="https://kurumia.carrd.co/" target="iframe_friend" style="color: pink; text-decoration: underline;">This is Kurumi, my best friend</a></p> 
+</section>
+<p>&copy; 2025 Kiy's Portfolio. All rights reserved</p>
+<footer>
+</footer> 
+</body>
+</html>
