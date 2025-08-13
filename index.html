@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Kiy's Portfolio</title>
+  <link rel="icon" type="image/webp" href="/images/favicon.webp">
+  <style>
+    body {
+      font-family: 'Helvetica', sans-serif;
+      background-color: #000;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #1a1a1a;
+      padding: 10px 0;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+
+    nav a {
+      color: whitesmoke;
+      padding: 12px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #404040;
+    }
+
+    section {
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    table, th, td {
+      border: 1px solid #fff;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: grey;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    .fade-in {
+      animation: fadeIn 2.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .slide-up {
+      animation: slideUp 2s ease-out;
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(100px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #1a1a1a;
+      margin-top: 40px;
+    }
+
+    /* Daily Truth box */
+    .truth-box {
+      background-color: #111;
+      padding: 20px;
+      border: 2px solid #ff4444;
+      border-radius: 12px;
+      margin-top: 20px;
+      text-align: center;
+    }
+
+    .alert-message {
+      color: rgba(255,0,0,0.7);
+      font-weight: bold;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    /* Static noise effect */
+    .noise {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') repeat;
+      opacity:0.05;
+      pointer-events:none;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<div class="noise"></div>
+
+<header>
+  <h1 style="text-align: center;">Kiy's Portfolio</h1>
+  <nav>
+    <ul>
+      <li><a href="#about-me">About Me</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#avatar">Avatar</a></li>
+      <li><a href="#learning">Learning</a></li>
+      <li><a href="#ingsoc">1984</a></li>
+      <li><a href="#friends">Friends</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+
+  <!-- About Me -->
+  <section id="about-me">
+    <h2>About Me</h2>
+    <p style="font-size: 20px;">My name is Kiy. This line looks enthusiastic but I'm not.</p>
+<pre style="font-size: 20px; font-family: Arial;">
+I love playing video games
+Particularly strategic games!
+Two of them are Hoi4, Rimworld
+</pre>
+    <button onclick="document.getElementById('demo').innerHTML = Date()">Click me to display Date and Time.</button>
+    <p id="demo"></p>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>My Current Skills</h2>
+    <table>
+      <tr>
+        <th>My skill</th>
+        <th>Level</th>
+        <th>What I can do</th>
+      </tr>
+      <tr>
+        <td rowspan="2">Playing games</td>
+        <td>Intermediate</td>
+        <td>Playing Stellaris</td>
+      </tr>
+      <tr>
+        <td>Advanced</td>
+        <td>Playing Hoi4</td>
+      </tr>
+      <tr>
+        <td>Coding</td>
+        <td>Basic</td>
+        <td>HTML, CSS, JavaScript in basic</td>
+      </tr>
+    </table>
+    <caption>The information was last updated in 8/4/2025</caption>
+  </section>
+
+  <!-- Avatar -->
+  <section id="avatar">
+    <h2>My Current Avatar</h2>
+    <img src="https://i.imgflip.com/2/8fomfq.jpg" alt="My avatar">
+    <p style="font-family: monospace;"><sup>Freedom is Slavery.<br>but I like this photo more.</sup></p>
+  </section>
+
+  <!-- Learning -->
+  <section id="learning">
+    <h2>Where I Learned to Code</h2>
+    <p><a href="https://www.w3schools.com/" target="_blank"><i>HTML Tutorial</i></a></p>
+    <a href="https://sandboxels.r74n.com/" target="_blank">
+      <button>Click here to play Sandboxels!</button>
+    </a>
+  </section>
+
+  <!-- 1984 Section -->
+  <section id="ingsoc">
+    <h2 style="text-align:center; color: #ff4444;">INGSOC</h2>
+    <p class="fade-in" style="text-align: center; font-size: 24px;">
+      <b>Control is an illusion. In <del>our hand</del> Party's hand <del> until now</del> forever...</b>
+    </p>
+    <p style="text-align: center;">
+      <em>The Party or <abbr title="English Socialism">INGSOC</abbr>, is the ruler of Oceania with their figurehead being Big Brother</em>
+    </p>
+    <p style="font-size: 30px; text-align: center;" class="slide-up">More information about 1984:</p>
+    <p style="text-align: center;">
+      <a href="https://en.wikipedia.org/wiki/Nineteen_Eighty-Four" target="_blank">
+        <img src="https://res.cloudinary.com/hzpwrwfdi/image/upload/w_110/media/covers/nineteen-eighty-four-1984-george_h2udyj"
+             onclick="alert('BIG BROTHER IS WATCHING YOU')" alt="Nineteen_Eighty-Four">
+      </a>
+    </p>
+    <div class="truth-box">
+      <h3 style="color: #ff4444;">Daily Truth from the Ministry of Truth</h3>
+      <p id="truth-message" style="font-size: 20px; font-style: italic;"></p>
+    </div>
+  </section>
+
+  <!-- Friends -->
+  <section id="friends">
+    <h2>My Friends' List</h2>
+    <iframe src="https://tse1.mm.bing.net/th/id/OIF.hQWX2mYx4egtaR5FUicyew?rs=1&pid=ImgDetMain&o=7&rm=3&adlt=strict"
+            name="iframe_friend" height="340px" width="100%" frameborder="0"></iframe>
+    <p>
+      <a href="https://kurumia.carrd.co/" target="iframe_friend" style="color: pink; text-decoration: underline;">
+        This is Kurumi, my best friend
+      </a>
+    </p>
+  </section>
+
+</main>
+
+<footer>
+  <p>&copy; 2025 Kiy's Portfolio. All rights reserved</p>
+</footer>
+
+<script>
+  const truths = [
+    "War is Peace. Freedom is Slavery. Ignorance is Strength.",
+    "Big Brother has always been your leader.",
+    "Oceania has always been at war with Eastasia.",
+    "All records of the past have been corrected for your safety.",
+    "Doublethink is the path to harmony."
+  ];
+  function showTruth() {
+    const msg = truths[Math.floor(Math.random() * truths.length)];
+    document.getElementById("truth-message").textContent = msg;
+  }
+  showTruth();
+  setInterval(showTruth, 5000);
+
+  // Random floating warnings
+  const warnings = [
+    "BIG BROTHER IS WATCHING YOU",
+    "THOUGHTCRIME DETECTED",
+    "OBEY THE PARTY",
+    "REALITY IS MALLEABLE",
+    "REPORT SUSPICIOUS NEIGHBORS"
+  ];
+  setInterval(() => {
+    const msg = document.createElement("div");
+    msg.textContent = warnings[Math.floor(Math.random() * warnings.length)];
+    msg.className = 'alert-message';
+    msg.style.top = Math.random() * window.innerHeight + "px";
+    msg.style.left = Math.random() * window.innerWidth + "px";
+    document.body.appendChild(msg);
+    setTimeout(() => msg.remove(), 3000);
+  }, 4000);
+</script>
+
+</body>
+</html>
