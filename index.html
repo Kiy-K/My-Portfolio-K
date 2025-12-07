@@ -3,272 +3,563 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta http-equiv="refresh" content="60">
-  <title>Kiy's Portfolio</title>
+  <title>Kiy - Systems Developer & AI Researcher</title>
   <link rel="icon" type="image/webp" href="/images/favicon.webp">
   <style>
-    body {
-      font-family: 'Helvetica', sans-serif;
-      background-color: #000;
-      color: #fff;
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
+    body {
+      font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Code', monospace;
+      background: #0a0a0a;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    /* Header */
     header {
-      background-color: #1a1a1a;
-      padding: 10px 0;
+      background: rgba(15, 15, 15, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      border-bottom: 1px solid #333;
+    }
+
+    nav {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
     nav ul {
       list-style: none;
       display: flex;
       justify-content: center;
-      margin: 0;
-      padding: 0;
       flex-wrap: wrap;
-    }
-
-    nav li {
-      margin: 0 10px;
+      gap: 2rem;
     }
 
     nav a {
-      color: whitesmoke;
-      padding: 12px;
+      color: #fff;
       text-decoration: none;
-      transition: background 0.3s;
+      font-weight: 500;
+      transition: all 0.3s;
+      position: relative;
+      letter-spacing: 0.5px;
     }
 
-    nav a:hover {
-      background-color: #404040;
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #fff;
+      transition: width 0.3s;
     }
 
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 8rem 2rem 6rem;
+      text-align: left;
+      border-bottom: 1px solid #222;
+    }
+
+    .hero h1 {
+      font-size: 5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1rem;
+      letter-spacing: -2px;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .hero .subtitle {
+      font-size: 1.8rem;
+      color: #888;
+      margin-bottom: 2rem;
+      font-weight: 300;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    .hero .tagline {
+      font-size: 1rem;
+      color: #666;
+      max-width: 700px;
+      line-height: 1.8;
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    /* Section Styling */
     section {
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      border-bottom: 1px solid #222;
     }
 
-    table, th, td {
-      border: 1px solid #fff;
-      border-collapse: collapse;
-      padding: 8px;
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 3rem;
+      color: #fff;
+      font-weight: 600;
+      letter-spacing: -1px;
     }
 
-    tr:nth-child(even) {
-      background-color: grey;
+    /* Project Cards */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
     }
 
-    img {
-      max-width: 100%;
-      border-radius: 8px;
+    .project-card {
+      background: #0f0f0f;
+      border: 1px solid #222;
+      padding: 2rem;
+      transition: all 0.3s;
     }
 
-    .fade-in {
-      animation: fadeIn 2.5s ease-in-out;
+    .project-card:hover {
+      border-color: #fff;
+      transform: translateY(-2px);
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
     }
 
-    .slide-up {
-      animation: slideUp 2s ease-out;
+    .project-card h3 {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: 600;
     }
 
-    @keyframes slideUp {
-      from { transform: translateY(100px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
+    .downloads {
+      color: #666;
+      font-size: 0.85rem;
+      font-weight: 400;
     }
 
+    .downloads.highlight {
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .project-tag {
+      display: inline-block;
+      background: transparent;
+      color: #888;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      margin: 0.5rem 0.5rem 0.5rem 0;
+      border: 1px solid #333;
+      font-family: monospace;
+    }
+
+    .project-card p {
+      color: #999;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+      border: 1px solid;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary {
+      background: #fff;
+      color: #000;
+      border-color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: #000;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: #fff;
+      border-color: #fff;
+    }
+
+    .btn-secondary:hover {
+      background: #fff;
+      color: #000;
+    }
+
+    /* Skills Section */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .skill-category {
+      background: #0f0f0f;
+      border: 1px solid #222;
+      padding: 2rem;
+    }
+
+    .skill-category h3 {
+      color: #fff;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .skill-item {
+      margin: 1rem 0;
+      color: #999;
+      font-size: 0.95rem;
+    }
+
+    .skill-bar {
+      width: 100%;
+      height: 1px;
+      background: #222;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+
+    .skill-progress {
+      height: 100%;
+      background: #fff;
+      animation: progressBar 1.5s ease-out;
+    }
+
+    /* Contact Section */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-item {
+      background: #0f0f0f;
+      border: 1px solid #222;
+      padding: 2rem;
+      transition: all 0.3s;
+    }
+
+    .contact-item:hover {
+      border-color: #fff;
+    }
+
+    .contact-item h3 {
+      color: #666;
+      font-size: 0.85rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+    }
+
+    .contact-item a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+    }
+
+    /* Footer */
     footer {
       text-align: center;
-      padding: 20px;
-      background-color: #1a1a1a;
-      margin-top: 40px;
+      padding: 3rem 2rem;
+      background: #0a0a0a;
     }
 
-    /* Daily Truth box */
-    .truth-box {
-      background-color: #111;
-      padding: 20px;
-      border: 2px solid #ff4444;
-      border-radius: 12px;
-      margin-top: 20px;
-      text-align: center;
+    footer p {
+      color: #666;
+      font-size: 0.9rem;
     }
 
-    .alert-message {
-      color: rgba(255,0,0,0.7);
-      font-weight: bold;
-      position: absolute;
-      pointer-events: none;
+    /* About Section */
+    .about-content {
+      font-size: 1.1rem;
+      color: #999;
+      max-width: 800px;
+      line-height: 1.9;
     }
 
-    /* Static noise effect */
-    .noise {
-      position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:url('https://media.giphy.com/media/oEI9uBYSzLpBK/giphy.gif') repeat;
-      opacity:0.05;
-      pointer-events:none;
-      z-index: 999;
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes progressBar {
+      from { width: 0; }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 3rem;
+      }
+      
+      .hero .subtitle {
+        font-size: 1.3rem;
+      }
+
+      .projects-grid,
+      .skills-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="noise"></div>
-
 <header>
-  <h1 style="text-align: center;">Kiy's Portfolio</h1>
   <nav>
     <ul>
-      <li><a href="#about-me">About Me</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#avatar">Avatar</a></li>
-      <li><a href="#learning">Learning</a></li>
-      <li><a href="#ingsoc">1984</a></li>
-      <li><a href="#friends">Friends</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <main>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Kiy</h1>
+    <p class="subtitle">Systems Developer & AI Researcher</p>
+    <p class="tagline">Building experimental operating systems and AI models for autonomous agents. Focused on low-level systems programming, kernel design, and language model development.</p>
+  </div>
 
-  <!-- About Me -->
-  <section id="about-me">
-    <h2>About Me</h2>
-    <p style="font-size: 20px;">My name is Kiy. This line looks enthusiastic but I'm not.</p>
-<pre style="font-size: 20px; font-family: Arial;">
-I love playing video games
-Particularly strategic games!
-Two of them are Hoi4, Rimworld
-</pre>
-    <button onclick="document.getElementById('demo').innerHTML = Date()">Click me to display Date and Time.</button>
-    <p id="demo"></p>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills">
-    <h2>My Current Skills</h2>
-    <table>
-      <tr>
-        <th>My skill</th>
-        <th>Level</th>
-        <th>What I can do</th>
-      </tr>
-      <tr>
-        <td rowspan="2">Playing games</td>
-        <td>Intermediate</td>
-        <td>Playing Stellaris</td>
-      </tr>
-      <tr>
-        <td>Advanced</td>
-        <td>Playing Hoi4</td>
-      </tr>
-      <tr>
-        <td>Coding</td>
-        <td>Basic</td>
-        <td>HTML, CSS, JavaScript in basic</td>
-      </tr>
-    </table>
-    <caption>The information was last updated in 8/4/2025</caption>
-  </section>
-
-  <!-- Avatar -->
-  <section id="avatar">
-    <h2>My Current Avatar</h2>
-    <img src="https://i.imgflip.com/2/8fomfq.jpg" alt="My avatar">
-    <p style="font-family: monospace;"><sup>Freedom is Slavery.<br>but I like this photo more.</sup></p>
-  </section>
-
-  <!-- Learning -->
-  <section id="learning">
-    <h2>Where I Learned to Code</h2>
-    <p><a href="https://www.w3schools.com/" target="_blank"><i>HTML Tutorial</i></a></p>
-    <a href="https://sandboxels.r74n.com/" target="_blank">
-      <button>Click here to play Sandboxels!</button>
-    </a>
-  </section>
-
-  <!-- 1984 Section -->
-  <section id="ingsoc">
-    <h2 style="text-align:center; color: #ff4444;">INGSOC</h2>
-    <p class="fade-in" style="text-align: center; font-size: 24px;">
-      <b>Control is an illusion. In <del>our hand</del> Party's hand <del> until now</del> forever...</b>
+  <!-- About Section -->
+  <section id="about">
+    <h2 class="section-title">About</h2>
+    <p class="about-content">
+      I'm a systems developer passionate about operating system design, artificial intelligence, and low-level programming. 
+      My work focuses on creating experimental platforms that bridge the gap between traditional computing and autonomous AI agents.
+      <br><br>
+      Currently working on FyodorOS, an AI-native microkernel, and fine-tuning language models for agent-specific tasks.
+      When I'm not coding, you'll find me exploring strategic games like Hearts of Iron IV and RimWorld.
     </p>
-    <p style="text-align: center;">
-      <em>The Party or <abbr title="English Socialism">INGSOC</abbr>, is the ruler of Oceania with their figurehead being Big Brother</em>
-    </p>
-    <p style="font-size: 30px; text-align: center;" class="slide-up">More information about 1984:</p>
-    <p style="text-align: center;">
-      <a href="https://en.wikipedia.org/wiki/Nineteen_Eighty-Four" target="_blank">
-        <img src="https://res.cloudinary.com/hzpwrwfdi/image/upload/w_110/media/covers/nineteen-eighty-four-1984-george_h2udyj"
-             onclick="alert('BIG BROTHER IS WATCHING YOU')" alt="Nineteen_Eighty-Four">
-      </a>
-    </p>
-    <div class="truth-box">
-      <h3 style="color: #ff4444;">Daily Truth from the Ministry of Truth</h3>
-      <p id="truth-message" style="font-size: 20px; font-style: italic;"></p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+      
+      <!-- FyodorOS -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>FyodorOS</h3>
+          <span class="downloads">PyPI Package</span>
+        </div>
+        <div>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">C++</span>
+          <span class="project-tag">NASM</span>
+          <span class="project-tag">OS Dev</span>
+        </div>
+        <p>
+          An experimental AI microkernel operating system designed from the ground up for autonomous AI agents. 
+          Features kernel-level agent integration, RBAC networking layer, NASM runtime, and a C++ reinforced sandbox.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/Kiy-K/FyodorOS" target="_blank" class="btn btn-primary">GitHub</a>
+          <a href="https://pypi.org/project/fyodoros/" target="_blank" class="btn btn-secondary">PyPI</a>
+        </div>
+      </div>
+
+      <!-- Fyodor AI Model -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Fyodor-Q3-8B-Instruct</h3>
+          <span class="downloads highlight">2,000+ downloads</span>
+        </div>
+        <div>
+          <span class="project-tag">Qwen3</span>
+          <span class="project-tag">8B</span>
+          <span class="project-tag">Fine-tuned</span>
+        </div>
+        <p>
+          An 8B parameter instruction-following language model based on Qwen3, fine-tuned for agent-native interactions 
+          and system-level task execution within FyodorOS. Optimized for autonomous decision-making and tool use.
+        </p>
+        <div class="project-links">
+          <a href="https://huggingface.co/Kiy-K/Fyodor-Q3-8B-Instruct" target="_blank" class="btn btn-primary">HuggingFace</a>
+        </div>
+      </div>
+
+      <!-- Plugin Ecosystem -->
+      <div class="project-card">
+        <div class="project-header">
+          <h3>Agent Plugin Ecosystem</h3>
+          <span class="downloads">FyodorOS</span>
+        </div>
+        <div>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">C++</span>
+          <span class="project-tag">Node.js</span>
+        </div>
+        <p>
+          Polyglot plugin system for FyodorOS supporting multiple languages. Enables extensible agent capabilities 
+          through GitHub integration, Slack notifications, usage monitoring, and RBAC team collaboration.
+        </p>
+        <div class="project-links">
+          <a href="https://github.com/Kiy-K/FyodorOS" target="_blank" class="btn btn-secondary">Documentation</a>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- Friends -->
-  <section id="friends">
-    <h2>My Friends' List</h2>
-    <iframe src="https://tse1.mm.bing.net/th/id/OIF.hQWX2mYx4egtaR5FUicyew?rs=1&pid=ImgDetMain&o=7&rm=3&adlt=strict"
-            name="iframe_friend" height="340px" width="100%" frameborder="0"></iframe>
-    <p>
-      <a href="https://kurumia.carrd.co/" target="iframe_friend" style="color: pink; text-decoration: underline;">
-        This is Kurumi, my best friend
-      </a>
-    </p>
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-grid">
+      
+      <div class="skill-category">
+        <h3>Systems Programming</h3>
+        <div class="skill-item">
+          <span>C/C++</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Python</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Assembly (NASM)</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>AI & Machine Learning</h3>
+        <div class="skill-item">
+          <span>LLM Fine-tuning</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Agent Systems</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Model Deployment</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>OS Development</h3>
+        <div class="skill-item">
+          <span>Kernel Design</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Process Management</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Security & Sandboxing</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-category">
+        <h3>Tools & Technologies</h3>
+        <div class="skill-item">
+          <span>Git & GitHub</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Docker</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span>Playwright</span>
+          <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="contact-grid">
+      <div class="contact-item">
+        <h3>GitHub</h3>
+        <a href="https://github.com/Kiy-K" target="_blank">@Kiy-K</a>
+      </div>
+      <div class="contact-item">
+        <h3>Email</h3>
+        <a href="mailto:khoitruong071510@gmail.com">khoitruong071510@gmail.com</a>
+      </div>
+      <div class="contact-item">
+        <h3>PyPI</h3>
+        <a href="https://pypi.org/user/Kiy-K/" target="_blank">FyodorOS</a>
+      </div>
+      <div class="contact-item">
+        <h3>HuggingFace</h3>
+        <a href="https://huggingface.co/Kiy-K" target="_blank">@Kiy-K</a>
+      </div>
+    </div>
   </section>
 
 </main>
 
 <footer>
-  <p>&copy; 2025 Kiy's Portfolio. All rights reserved</p>
+  <p>© 2025 Kiy. Building the future of autonomous computing.</p>
 </footer>
-
-<script>
-  const truths = [
-    "War is Peace. Freedom is Slavery. Ignorance is Strength.",
-    "Big Brother has always been your leader.",
-    "Oceania has always been at war with Eastasia.",
-    "All records of the past have been corrected for your safety.",
-    "Doublethink is the path to harmony."
-  ];
-  function showTruth() {
-    const msg = truths[Math.floor(Math.random() * truths.length)];
-    document.getElementById("truth-message").textContent = msg;
-  }
-  showTruth();
-  setInterval(showTruth, 5000);
-
-  // Random floating warnings
-  const warnings = [
-    "BIG BROTHER IS WATCHING YOU",
-    "THOUGHTCRIME DETECTED",
-    "OBEY THE PARTY",
-    "REALITY IS MALLEABLE",
-    "REPORT SUSPICIOUS NEIGHBORS"
-  ];
-  setInterval(() => {
-    const msg = document.createElement("div");
-    msg.textContent = warnings[Math.floor(Math.random() * warnings.length)];
-    msg.className = 'alert-message';
-    msg.style.top = Math.random() * window.innerHeight + "px";
-    msg.style.left = Math.random() * window.innerWidth + "px";
-    document.body.appendChild(msg);
-    setTimeout(() => msg.remove(), 3000);
-  }, 4000);
-</script>
 
 </body>
 </html>
-
